@@ -2,16 +2,24 @@
 
 int blink(int gpio_port,int dalayms)
 {
-  wiringPiSetup();
-  pinMode(gpio_port,OUTPUT);
-  int level = 0;
-  while(1)
+  if((gpio_port  >=0&&gpio_port<=7)||(gpio_port>=21&&gpio_port<=29))
   {
-    level = (level == 0) ? 1 : 0;
-    digitalWrite(gpio_port,level);
-    delay(dalyms);
+    wiringPiSetup();
+    pinMode(gpio_port,OUTPUT);
+    int level = 0;
+    while(1)
+    {
+      level = (level == 0) ? 1 : 0;
+      digitalWrite(gpio_port,level);
+      delay(dalyms);
+    }
+    return 1;
   }
-  return 1;
+  else
+  {
+    printf("Error gpio_port");
+    return 0;
+  }
 }
 int breathing_light(int gpio_port,int delayms)
 {
@@ -33,4 +41,3 @@ int breathing_light(int gpio_port,int delayms)
   }
   return 1;
 }
-int 
