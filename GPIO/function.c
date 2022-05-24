@@ -52,7 +52,35 @@ int hard_breathing_light(int gpio_port,int delayms)
     }
     else
     {
-        printf("Error gpio_port");
+        printf("Error gpio_port\n");
+        return 0;
+    }
+}
+int soft_breathing_light(int gpio_port,int delayms,int pwmMAX)
+{
+    if(is_gpio_port(gpio_port))
+    {
+        wiringPiSetup();
+        softPwmCreate(gpio_port,0,pwmMAX);
+        int i = 0;
+        while(1)
+        {
+            for(;i < pwmMAX;i++)
+            {
+                softPwmWrite(gpio_port,i);
+                delay(delayms);
+            }
+            for(;i > -1;i--)
+            {
+                softPwmWrite(gpio_port,i);
+                delay(delayms);
+            }
+        
+            }
+    }
+    else
+    {
+        printf("Error gpio_port\n");
         return 0;
     }
 }
