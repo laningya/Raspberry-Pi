@@ -1,6 +1,7 @@
 #include <wiringPi.h>
 #include <stdio.h>
 
+
 int is_gpio_port(int gpio_port)
 {
   if((gpio_port>=0&&gpio_port<=7)||(gpio_port>=21&&gpio_port<=29))
@@ -8,6 +9,7 @@ int is_gpio_port(int gpio_port)
   else
       return 0;
 }
+
 int blink(int gpio_port,int delayms)
 {
     if(is_gpio_port(gpio_port))
@@ -29,6 +31,7 @@ int blink(int gpio_port,int delayms)
         return 0;
     }
 }
+
 int hard_breathing_light(int gpio_port,int delayms)
 {
     if(gpio_port == 1 || gpio_port == 23 || gpio_port == 24 || gpio_port == 26 )
@@ -56,6 +59,7 @@ int hard_breathing_light(int gpio_port,int delayms)
         return 0;
     }
 }
+
 int soft_breathing_light(int gpio_port,int delayms,int pwmMAX)
 {
     if(is_gpio_port(gpio_port))
