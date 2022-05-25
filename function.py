@@ -5,6 +5,7 @@ import json
 import math
 
 def bing_reptile(numbers):
+#必应壁纸爬虫
   bing_api_url = 'https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=' + str(numbers) + '&mkt=zh-CN'
   response  =  requests.get(bing_api_url)
   data  =  response.json()
@@ -20,11 +21,13 @@ def bing_reptile(numbers):
 
 
 def local_time():
+#获取本地时间
   return  time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())
 
 
 
 def weather():
+#和风天气爬虫
   url = 'https://devapi.qweather.com/v7/weather/now?location=101110509&key=bb6d9d9b301c40ac9ac69852710bfc1a'
   response = requests.get(url)
   weather_data = response.json()
@@ -32,6 +35,7 @@ def weather():
 
 
 def csv2dict(filename):
+#csv文件转字典
     devices_dict = []
     with open(filename,'r') as f:
         csvreader = csv.reader(f)
@@ -42,6 +46,7 @@ def csv2dict(filename):
     return devices_dict
 
 def dict2csv_save(filename,devices_dict):
+#字典转csv
     header = devices_dict[0].keys()
     devices_csv = []
     for device_dict in devices_dict:
@@ -53,6 +58,7 @@ def dict2csv_save(filename,devices_dict):
         f_csv.writerows(devices_csv)
 
 def json2dict(filename):
+#json转字典
     devices_dict = []
     with open(filename,'r') as f:
         jsonreader = json.load(f)
@@ -61,6 +67,7 @@ def json2dict(filename):
     return devices_dict
 
 def dict2json_save(filename,devices_dict):
+#字典转json
     with open(filename,'w') as f:
         json.dump(devices_dict,f)
 
@@ -72,6 +79,7 @@ def json2csv(filename1,filename2):
 
 
 def Hamming_encode(number):
+#海明编码
 
   Check_code_length = 2
 
@@ -154,6 +162,7 @@ def CRC_Decoding(str1, str2):  # CRC解码
     return yus == '0' * len(yus)
     
 def route(local_route_list,route_list,local_route_id,route_id):
+#矢量路由算法
     for route in route_list:
         flag = 0
         if route['目的地址'] == local_route_id:
