@@ -5,6 +5,7 @@
 
 
 int is_gpio_port(int gpio_port)
+//判断输入是否为GPIO接口
 {
   if((gpio_port>=0&&gpio_port<=7)||(gpio_port>=21&&gpio_port<=29))
       return 1;
@@ -13,6 +14,7 @@ int is_gpio_port(int gpio_port)
 }
 
 int blink(int gpio_port,int delayms)
+//LED闪烁程序
 {
         wiringPiSetup();
         pinMode(gpio_port,OUTPUT);
@@ -26,6 +28,7 @@ int blink(int gpio_port,int delayms)
 }
 
 int hard_breathing_light(int gpio_port,int delayms)
+//硬件呼吸灯程序
 {
     if(gpio_port == 1 || gpio_port == 23 || gpio_port == 24 || gpio_port == 26 )
     {
@@ -54,6 +57,7 @@ int hard_breathing_light(int gpio_port,int delayms)
 }
 
 int soft_breathing_light(int gpio_port,int delayms,int pwmMAX)
+//软件呼吸灯程序
 {
 
         wiringPiSetup();
@@ -75,6 +79,7 @@ int soft_breathing_light(int gpio_port,int delayms,int pwmMAX)
 }
 
 int soft_tone(int gpio_port)
+//无源蜂鸣器
 {
     wiringPiSetup();
 
@@ -100,6 +105,7 @@ int soft_tone(int gpio_port)
     }
 }
 int sense_light(int gpio_port1,int gpio_port2,int gpio_port3)
+//红外模块
 {
     wiringPiSetup();
 
@@ -122,6 +128,7 @@ int sense_light(int gpio_port1,int gpio_port2,int gpio_port3)
 }
 
 int motor(int gpio_port1,int gpio_port2,int gpio_port3,int gpio_port4)
+//电机模块
 {
     int pins[4] = {gpio_port1,gpio_port2,gpio_port3,gpio_port4};
 
