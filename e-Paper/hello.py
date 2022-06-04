@@ -17,7 +17,13 @@ epd.init()
 epd.Clear(0xFF)
 font24 = ImageFont.truetype('/home/pi/Raspberry-Pi/e-Paper/Font.ttc',24)
 font36 = ImageFont.truetype('/home/pi/Raspberry-Pi/e-Paper/Font.ttc',36)
-while True:
+
+def init():
+    epd.init()
+    epd.Clear(0xFF)
+    epd.sleep()
+
+def clock():
     epd.init()
     timeinfo = time.localtime()
     timeymd = time.strftime("%Y-%m-%d",timeinfo)
@@ -30,4 +36,9 @@ while True:
     image = image.transpose(Image.ROTATE_180)
     epd.display(epd.getbuffer(image))
     epd.sleep()
-    time.sleep(60-int(times))
+    time.sleep(120-int(times))
+
+if __name__ == '__main__':
+    init()
+    while True:
+        clock()
