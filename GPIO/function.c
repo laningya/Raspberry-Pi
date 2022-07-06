@@ -1,6 +1,7 @@
 #include <wiringPi.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <softpwm.h>
 #include <softTone.h>
 
 
@@ -57,7 +58,7 @@ int hard_breathing_light(int gpio_port,int delayms)
 }
 
 int soft_breathing_light(int gpio_port,int delayms,int pwmMAX)
-//软件呼吸灯程序
+//软件呼吸灯程序,由于wiringPi函数库限制，pwmMAX一般最大取100
 {
 
         wiringPiSetup();
@@ -160,4 +161,29 @@ int motor(int gpio_port1,int gpio_port2,int gpio_port3,int gpio_port4)
             }     
         }
     }
+}
+int pwm_sg90(int gpio_port,int i)
+{
+    if(gpio_port == 1 || gpio_port == 23 || gpio_port == 24 || gpio_port == 26 )
+    {
+        wiringPiSetup();
+        pinMode(gpio_port,PWM_OUTPUT);
+        pwmSetMode(PWM_MODE_MS);
+        pwmSetClock(192);
+        pwmSetRange(2000);
+        pwmWrite(gpio_port,i)
+    }
+    else
+    {
+        printf("Error gpio_port\n");
+        return 0;
+    }
+}
+
+
+int soft_pwm_sg90(int gpio_port,int i)
+{
+    wiringPiSetup();
+    softPwmCreate(gpio_port,0,200);
+    softPwmWrite(gpio_port,i)
 }
