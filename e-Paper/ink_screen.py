@@ -4,6 +4,7 @@ import os
 import epd2in7
 import time
 import requests
+import random
 import socket
 from PIL import Image,ImageDraw,ImageFont
 
@@ -62,7 +63,22 @@ class Ink_display(object):
     def image(self):
         image = Image.open('./sunday.png')
         self.epd.display(self.epd.getbuffer(image))
+    
+    def text(self):
+        with open("./text.txt","r") as f:
+           lines =  f.readlines()
+        line = lines[random.randint(1,2020)]
+        line = line[5:len(line)-3]
+        line = line.split('，')
+        line_len = len(line)
+
+        image = Image.new('1', (self.epd.height,self.epd.width), 255)
+        draw = ImageDraw.Draw(image)
+        for i in range(line_len):
+            draw.text((10+i*5, 30+i*30),line[i] , font = self.font20, fill = 0)
+        self.epd.display(self.epd.getbuffer(image))
+
 
 
 ink_display = Ink_display()
-ink_display.image()
+ink_display.text()
