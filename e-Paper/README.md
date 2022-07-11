@@ -1,5 +1,6 @@
-# e-Paper开发日志
+# 墨水屏开发
 
+```Python
 class Ink_display
 
 #初始化方法
@@ -19,3 +20,5 @@ def image(self):
     
 #显示毒鸡汤方法
 def text(self):
+```
+
