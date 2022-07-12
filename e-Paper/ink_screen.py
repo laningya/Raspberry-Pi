@@ -6,6 +6,7 @@ import time
 import requests
 import random
 import socket
+import calendar
 from PIL import Image,ImageDraw,ImageFont
 
 
@@ -14,9 +15,11 @@ class Ink_display(object):
         self.epd = epd2in7.EPD()
         self.epd.init()
         self.epd.Clear(0xFF)
-        self.font20 = ImageFont.truetype('./Font.ttc',20)
-        self.font24 = ImageFont.truetype('./Font.ttc',24)
-        self.font80 = ImageFont.truetype('./Font.ttc',80)
+        self.font16 = ImageFont.truetype('./resources/FreeMonoBold.ttf',16)
+        self.font20 = ImageFont.truetype('./resources/FreeMonoBold.ttf',20)
+        self.font24 = ImageFont.truetype('./resources/FreeMonoBold.ttf',24)
+        self.font80 = ImageFont.truetype('./resources/FreeMonoBold.ttf',80)
+        self.weather_image = {'晴':Image.open('./resources/sunny.jpg'),'阴':Image.open('./resources/cloudy.jpg'),'雨':Image.open('./resources/rainy.jpg')}
 
     def clock(self):
         timeinfo = time.localtime()
@@ -34,10 +37,13 @@ class Ink_display(object):
         response = requests.get(url)
         weather_data = response.json()
         data = weather_data['now']
-        image = Image.new('1', (self.epd.height,self.epd.width), 255)
+        if data['text'] == '阴':
+            image = self.weather_image['阴']
+        if data['text'] == '晴':
+            image = self.weather_image['晴']
         draw = ImageDraw.Draw(image)
-        draw.text((20, 12), '温度:' + data['temp']+ '`C', font = self.font20, fill = 0)
-        draw.text((36, 72), '天气:' + data['text'], font = self.font20, fill = 0)
+        draw.text((20, 80),  data['temp']+ '`C', font = self.font20, fill = 0)
+        draw = ImageDraw.Draw(image)
         self.epd.display(self.epd.getbuffer(image))
 
     def raspberry_info(self):
@@ -61,7 +67,7 @@ class Ink_display(object):
         self.epd.display(self.epd.getbuffer(image))
     
     def image(self):
-        image = Image.open('./sunday.png')
+        image = Image.open('./resources/test.jpg')
         self.epd.display(self.epd.getbuffer(image))
     
     def text(self):
@@ -81,4 +87,4 @@ class Ink_display(object):
 
 
 ink_display = Ink_display()
-ink_display.text()
+ink_display.weather()
