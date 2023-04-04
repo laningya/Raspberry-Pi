@@ -12,11 +12,11 @@
 //设置串口速率
 #define serialRate 115200
 //设置WIFI名称与密码
-#define ssid "TP-LINK"
-#define password "12345678"
+#define ssid "***"
+#define password "***"
 //设置心知天气信息
-#define key "SegW1c2oSVZaH83M-"
-#define location "chengdu"
+#define key "***"
+#define location "***"
 #define language "en"
 #define unit "c"
 
