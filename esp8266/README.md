@@ -16,6 +16,12 @@ SSD1306屏幕一块
 ---
 
 
+## 效果图
+![](images\esp8266效果图.jpg)
+
+---
+
+
 ## 项目功能介绍
 
 - 连接指定WIFI
@@ -79,16 +85,110 @@ ESP8266常见开发环境有Arduino IDE和ESP8266 SDK两种。项目使用Arduin
 ---
 ---
 
-## Weather类介绍
+## WeatherNow类
 
 ```c++
-class Weather
+class WeatherNow
 {
-    public:
-    	void config(String key,String location,String language ,String unit); //传入API需要的参数
-    	String getText(); //获取天气
-    	String getTemperature()； //获取温度
-        String getDate(); //获取日期
-}
+  public:
+    //配置心知天气相关信息
+    void config(String ,String ,String ,String);
+    //获取天气信息
+    void getData();
+  public:
+    //天气
+    String text;
+    //温度
+    String temperature;
+    //体感温度
+    String feels_like;
+    //气压
+    String pressure;
+    //相对湿度
+    String humidity;
+    //能见度
+    String visibility;
+    //风向
+    String wind_direction;
+    //风向角度
+    String wind_direction_degree;
+    //风速
+    String wind_speed;
+    //风力等级
+    String wind_scale;
+    //云量
+    String clouds;
+    //露点温度
+    String dew_point;
+    //日期
+    String date;
+  private:
+    int getPayload();
+    String _url;
+    String _payload;
+};
 ```
 
+---
+
+
+## WeatherDay类
+
+```c++
+class WeatherDay
+{
+  public:
+    void config(String ,String ,String ,String);
+    void getData();
+  public:
+    String date0;
+    String date1;
+    String date2;
+    String text_day0;
+    String text_day1;
+    String text_day2;
+    String text_night0;
+    String text_night1;
+    String text_night2;
+    String code_night0;
+    String code_night1;
+    String code_night2;
+    String high0;
+    String high1;
+    String high2;
+    String low0;
+    String low1;
+    String low2;
+    String precip0; 
+    String precip1; 
+    String precip2; 
+    String wind_direction0;
+    String wind_direction1;
+    String wind_direction2;
+    String wind_direction_degree0;
+    String wind_direction_degree1;
+    String wind_direction_degree2;
+    String wind_speed0;
+    String wind_speed1;
+    String wind_speed2;
+    String wind_scale0;
+    String wind_scale1;
+    String wind_scale2;
+    String rainfall0;
+    String rainfall1;
+    String rainfall2;
+    String humidity0;
+    String humidity1;
+    String humidity2;
+  private:
+    int getPayload();
+    String _url;
+    String _payload;
+};
+```
+
+---
+
+
+## 进一步开发计划
+- 受限于ssd1306显示内容有限，因而考虑更换屏幕，显示未来天气等信息。

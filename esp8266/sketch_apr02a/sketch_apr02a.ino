@@ -8,7 +8,8 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 //天气头文件
-#include "Weather.h"
+#include "WeatherNow.h"
+#include "WeatherDay.h"
 //设置串口速率
 #define serialRate 115200
 //设置WIFI名称与密码
@@ -45,7 +46,7 @@ Adafruit_SSD1306 oled(128, 64, &Wire,-1);
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP,"ntp1.aliyun.com",60*60*8, 30*60*1000);
 //天气
-Weather a;
+WeatherNow a;
 //计数
 int counter = 0;
 
@@ -66,7 +67,7 @@ void loop() {
   oled.clearDisplay();//清屏
   counter += 1;
   if(counter >= 60)
-    counter = 0;
+  counter = 0;
 }
 void initSerial()
 {
@@ -115,15 +116,15 @@ void setWeather(int counter)
   if(counter == 0)
   {
     a.getData();
-    setDispaly(1,55,5,a.getText());
-    setDispaly(1,110,5,a.getTemperature());
-    setDispaly(1,35,30,a.getDate());
+    setDispaly(1,55,5,a.text);
+    setDispaly(1,110,5,a.temperature);
+    setDispaly(1,35,30,a.date);
   }
   else
   {
-    setDispaly(1,55,5,a.getText());
-    setDispaly(1,110,5,a.getTemperature());
-    setDispaly(1,35,30,a.getDate());
+    setDispaly(1,55,5,a.text);
+    setDispaly(1,110,5,a.temperature);
+    setDispaly(1,35,30,a.date);
   }
 }
 void setLocation()
