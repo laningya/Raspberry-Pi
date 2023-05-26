@@ -1,0 +1,13 @@
+[Unit]
+Description=pwm-fan
+After=rc.local.service
+
+[Service]
+Type=oneshot
+KillMode=control-group
+WorkingDirectory=/tmp
+ExecStart=/usr/bin/start-rk3399-pwm-fan.sh
+
+[Install]
+WantedBy=multi-user.target
+Alias=pwm-fan.service

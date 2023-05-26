@@ -2,11 +2,19 @@ import os
 import re
 import requests
 
+<<<<<<< HEAD
 url = ''
 oldContent  = 'external-controller: :9090'
 newContent  = 'external-controller: 0.0.0.0:9090'
 insertContent = 'external-ui: /ui'
 filePath = '/home/pi/clash/'
+=======
+url  = ''
+oldContent  = 'external-controller: :9090'
+newContent  = 'external-controller: 0.0.0.0:9090'
+insertContent = 'external-ui: /ui'
+filePath = ''
+>>>>>>> develop
 
 def getData(url):
      # 发送GET请求
