@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+  go-proxy-bingai:
+    image: adams549659584/go-proxy-bingai
+    container_name: go-proxy-bingai  
+    hostname: go-proxy-bingai
+    restart: always
+    ports:
+      - 127.0.0.1:8080:8080
+ 
+  caddy:
+    image: caddy
+    container_name: caddy
+    hostname: caddy
+    restart: always
+    depends_on:
+      - go-proxy-bingai
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy/data:/data
+      - ./caddy/config:/config
+    ports:
+      - 443:443
+      - 80:80

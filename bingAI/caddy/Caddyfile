@@ -1,0 +1,4 @@
+yourdomain.com {
+        encode zstd gzip
+        reverse_proxy  http://go-proxy-bingai:8080
+}
