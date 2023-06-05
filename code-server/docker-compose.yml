@@ -4,7 +4,11 @@ services:
   code-server:
     image: codercom/code-server:latest
     container_name: code-server
-    restart: always
+    restart: unless-stopped
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp=unconfined
     user: root:root
     environment:
       - DOCKER_USER=$USER
