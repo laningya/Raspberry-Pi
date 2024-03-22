@@ -78,7 +78,7 @@ class AutoDownload:
                 folders = self.get_dirs()
                 current_dir = os.getcwd()
                 if dir_name not in folders:
-                    os.system('mkdir ' + dir_name)
+                    os.makedirs(dir_name)
                 os.chdir(current_dir + '/' + dir_name)
 
                 #编码目录下的文件名
