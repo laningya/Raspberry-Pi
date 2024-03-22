@@ -121,11 +121,14 @@ class AutoDownload:
 if __name__ == '__main__':
     arguments = sys.argv
     len_cmd = len(arguments)
-    if len_cmd == 3:
-        if arguments[1] == '-l':
-            url = arguments[2]
     if len_cmd == 1:
         print('请输入url:',end = '')
-        url =input()
+        url = input()
+    elif len_cmd == 3:
+        if arguments[1] == '-l':
+            url = arguments[2]
+    else:
+        print('输入不合法')
+        exit(0)
     autoDownload = AutoDownload(url)
     autoDownload.main()
