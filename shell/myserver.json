@@ -1,0 +1,10 @@
+{
+    "ServerInfo":[
+        {
+            "tag":"RaspberryPi",
+            "IP":"192.168.1.100",
+            "Port":22,
+            "User":"pi"
+        }
+    ]
+}
