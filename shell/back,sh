@@ -5,8 +5,8 @@ SERVICE_NAME=""
 DATE=$(date +'%Y-%m-%d')
 DATA_DIR=""       # 数据文件夹
 BACKUP_DIR=""                     # 备份存储路径
-BACKUP_FILE="$BACKUP_DIR/$SERVICE_NAME-backup-$DATE.tar.gz"
 COMPOSE_DIR=""    # docker-compose.yml 文件所在目录
+BACKUP_FILE="$BACKUP_DIR/$SERVICE_NAME-backup-$DATE.tar.gz"
 LOG_FILE="/var/log/$SERVICE_NAME-backup.log"             # 日志文件路径
 
 # 确保日志文件存在
