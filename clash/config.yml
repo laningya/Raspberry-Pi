@@ -7,7 +7,7 @@ proxy-providers:
     health-check: {enable: true,url: "https://www.gstatic.com/generate_204",interval: 300}
   
 proxies: 
-  - name: "直连"
+  - name: "direct"
     type: direct
     udp: true
 
@@ -213,7 +213,6 @@ rules:
   - RULE-SET,netflix_ip,NETFLIX
   - RULE-SET,telegram_ip,Telegram
   - RULE-SET,twitter_ip,Twitter
-  - RULE-SET,apple_ip,Apple
   - RULE-SET,cn_ip,China
   - MATCH,Proxy
 
@@ -306,6 +305,3 @@ rule-providers:
   telegram_ip:
     <<: *ip
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"
-  apple_ip:
-    <<: *ip
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/apple.mrs"
