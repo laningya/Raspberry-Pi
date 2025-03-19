@@ -9,8 +9,8 @@ proxy=false
 # proxy=true
 
 # IPv4和IPv6域名
-IPv4Domain="test.yourdomail.com"
-IPv6Domain="test.yourdomail.com"
+IPv4Domain="test.yourdomain.com"
+IPv6Domain="test.yourdomain.com"
 
 # Cloudflare API令牌和域ID
 ZONE_ID=""
