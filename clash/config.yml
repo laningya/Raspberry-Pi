@@ -93,6 +93,16 @@ proxy-groups:
   - name: Telegram
     type: select
     proxies: [Singapore,HongKong,TaiWan,Japan,America,Others,IEPL]
+
+  - name: Magpie
+    type: select
+    include-all: true
+    filter: "(?i)^(?!.*(?:网站|地址|剩余|过期|到期|时间|有效)).*"
+    
+  - name: Micu
+    type: select
+    include-all: true
+    filter: "(?i)^(?!.*(?:网站|地址|剩余|过期|到期|时间|有效)).*"
     
   - name: NETFLIX
     type: select
@@ -189,6 +199,19 @@ proxy-groups:
     tolerance: 10
 
 rules:
+  - DOMAIN-SUFFIX,023168.xyz,Magpie
+  - DOMAIN-SUFFIX,vban.xyz,Magpie
+  - DOMAIN-SUFFIX,niceduck.lol,Magpie
+  - DOMAIN-SUFFIX,xmsl.org,Magpie
+  - DOMAIN-SUFFIX,embymv.link,Magpie
+  - DOMAIN-SUFFIX,zox.show,Magpie
+  - DOMAIN-SUFFIX,emby.moe,Magpie
+  - IP-CIDR,142.171.168.229/32,Magpie,no-resolve
+  - IP-CIDR,152.53.81.68/32,Magpie,no-resolve
+  - DOMAIN,magpie.610524.xyz,Magpie
+  - DOMAIN,1111.610524.xyz,Magpie
+  - DOMAIN-SUFFIX,micu.hk,Micu
+  
   - RULE-SET,private_ip,direct,no-resolve
   - RULE-SET,github_domain,Github
   - RULE-SET,twitter_domain,Twitter
