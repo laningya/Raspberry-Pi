@@ -85,30 +85,54 @@ proxy-groups:
   - name: Github
     type: select
     proxies:  [HongKong,TaiWan,Singapore,Japan,America,Others,IEPL]
+
+  - name: OpenAI
+    type: select
+    proxies:  [Singapore,TaiWan,Japan,America,Others,IEPL]
     
   - name: Telegram
     type: select
     proxies: [Singapore,HongKong,TaiWan,Japan,America,Others,IEPL]
+    
+  - name: NETFLIX
+    type: select
+    proxies: [HongKong,TaiWan,Singapore,Japan,America,Others,IEPL]
+    
+  - name: Disney+
+    type: select
+    proxies: [HongKong,TaiWan,Singapore,Japan,America,Others,IEPL]
+    
+  - name: Tiktok
+    type: select
+    proxies: [Singapore,HongKong,TaiWan,Japan,America,Others,IEPL]
+    
+  - name: BiliBili
+    type: select
+    proxies: [direct,HongKong,TaiWan,IEPL]
 
   - name: Twitter
     type: select
     proxies: [HongKong,TaiWan,Singapore,Japan,America,Others,IEPL]
 
-  - name: BiliBili
-    type: select
-    proxies: [direct,HongKong,TaiWan,IEPL]
-
   - name: Bahamut
     type: select
     proxies: [TaiWan,Proxy,IEPL]
 
-  - name: NETFLIX
-    type: select
-    proxies: [HongKong,TaiWan,Singapore,Japan,America,Others,IEPL]
-
   - name: Spotify
     type: select
     proxies:  [HongKong,TaiWan,Singapore,Japan,America,Others,IEPL]
+    
+  - name: Apple
+    type: select
+    proxies:  [HongKong,TaiWan,Singapore,Japan,America,Others,IEPL,direct]
+    
+  - name: Microsoft
+    type: select
+    proxies:  [HongKong,TaiWan,Singapore,Japan,America,Others,IEPL,direct]
+    
+  - name: Games
+    type: select
+    proxies: [direct,HongKong,TaiWan,Singapore,Japan,America,Others,IEPL]
 
   - name: China
     type: select
@@ -176,6 +200,12 @@ rules:
   - RULE-SET,bahamut_domain,Bahamut
   - RULE-SET,spotify_domain,Spotify
   - RULE-SET,openai_domain,OpenAI
+  - RULE-SET,tiktok_domain,Tiktok
+  - RULE-SET,category-games_domain,Games
+  - RULE-SET,dmm_domain,Games
+  - RULE-SET,disney_domain,Disney+
+  - RULE-SET,microsoft_domain,Microsoft
+  - RULE-SET,apple_domain,Apple
   - RULE-SET,cn_domain,China
   - RULE-SET,geolocation-!cn,Proxy
 
@@ -183,6 +213,7 @@ rules:
   - RULE-SET,netflix_ip,NETFLIX
   - RULE-SET,telegram_ip,Telegram
   - RULE-SET,twitter_ip,Twitter
+  - RULE-SET,apple_ip,Apple
   - RULE-SET,cn_ip,China
   - MATCH,Proxy
 
@@ -238,6 +269,24 @@ rule-providers:
   openai_domain:
     <<: *domain
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/openai.mrs"
+  tiktok_domain:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"
+  category-games_domain:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-games.mrs"
+  dmm_domain:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/dmm.mrs"
+  disney_domain:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/disney.mrs"
+  microsoft_domain:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"
+  apple_domain:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"
     
   private_ip:
     <<: *ip
@@ -257,3 +306,6 @@ rule-providers:
   telegram_ip:
     <<: *ip
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"
+  apple_ip:
+    <<: *ip
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/apple.mrs"
