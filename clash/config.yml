@@ -205,6 +205,7 @@ rules:
   - DOMAIN-SUFFIX,xmsl.org,Magpie
   - DOMAIN-SUFFIX,embymv.link,Magpie
   - DOMAIN-SUFFIX,zox.show,Magpie
+  - DOMAIN-SUFFIX,as174.de,Magpie
   - DOMAIN-SUFFIX,emby.moe,Magpie
   - IP-CIDR,142.171.168.229/32,Magpie,no-resolve
   - IP-CIDR,152.53.81.68/32,Magpie,no-resolve
