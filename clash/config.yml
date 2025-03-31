@@ -191,13 +191,6 @@ proxy-groups:
     exclude-type: direct
     filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"
 
-  - name: auto
-    type: url-test
-    include-all: true
-    exclude-type: direct
-    filter: "(?i)^(?!.*(?:网站|地址|剩余|过期|到期|时间|有效)).*"
-    tolerance: 10
-
 rules:
   - DOMAIN-SUFFIX,023168.xyz,Magpie
   - DOMAIN-SUFFIX,vban.xyz,Magpie
