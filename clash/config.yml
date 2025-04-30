@@ -202,6 +202,7 @@ rules:
   - DOMAIN-SUFFIX,emby.moe,Magpie
   - IP-CIDR,142.171.168.229/32,Magpie,no-resolve
   - IP-CIDR,152.53.81.68/32,Magpie,no-resolve
+  - IP-CIDR,65.21.206.96/32,Magpie,no-resolve
   - DOMAIN,magpie.610524.xyz,Magpie
   - DOMAIN,1111.610524.xyz,Magpie
   - DOMAIN-SUFFIX,micu.hk,Micu
