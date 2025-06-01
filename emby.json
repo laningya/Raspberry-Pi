@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "domain_suffix": [
+            "023168.xyz",
+            "vban.xyz",
+            "niceduck.lol",
+            "xmsl.org",
+            "embymv.link",
+            "zox.show",
+            "as174.de",
+            "emby.moe",
+            "yunti.online",
+            "mobaiemby.site",
+            "28.al",
+            "feiniu.lol",
+            "staryuki.com"
+        ],
+      "ip_cidr": [
+            "142.171.168.229/32",
+            "152.53.81.68/32",
+            "65.21.206.96/32"
+        ],
+      "domain": [
+            "magpie.610524.xyz",
+            "1111.610524.xyz"
+        ]
+    }
+  ]
+}
