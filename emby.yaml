@@ -1,0 +1,19 @@
+payload:
+- DOMAIN-SUFFIX,023168.xyz
+- DOMAIN-SUFFIX,vban.xyz
+- DOMAIN-SUFFIX,niceduck.lol
+- DOMAIN-SUFFIX,xmsl.org
+- DOMAIN-SUFFIX,embymv.link
+- DOMAIN-SUFFIX,zox.show
+- DOMAIN-SUFFIX,as174.de
+- DOMAIN-SUFFIX,emby.moe
+- DOMAIN-SUFFIX,yunti.online
+- DOMAIN-SUFFIX,mobaiemby.site
+- DOMAIN-SUFFIX,28.al
+- DOMAIN-SUFFIX,feiniu.lol
+- DOMAIN-SUFFIX,staryuki.com
+- IP-CIDR,142.171.168.229/32
+- IP-CIDR,152.53.81.68/32
+- IP-CIDR,65.21.206.96/32
+- DOMAIN,magpie.610524.xyz
+- DOMAIN,1111.610524.xyz
