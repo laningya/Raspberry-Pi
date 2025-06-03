@@ -192,21 +192,8 @@ proxy-groups:
     filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"
 
 rules:
-  - DOMAIN-SUFFIX,023168.xyz,Magpie
-  - DOMAIN-SUFFIX,vban.xyz,Magpie
-  - DOMAIN-SUFFIX,niceduck.lol,Magpie
-  - DOMAIN-SUFFIX,xmsl.org,Magpie
-  - DOMAIN-SUFFIX,embymv.link,Magpie
-  - DOMAIN-SUFFIX,zox.show,Magpie
-  - DOMAIN-SUFFIX,as174.de,Magpie
-  - DOMAIN-SUFFIX,emby.moe,Magpie
-  - IP-CIDR,142.171.168.229/32,Magpie,no-resolve
-  - IP-CIDR,152.53.81.68/32,Magpie,no-resolve
-  - IP-CIDR,65.21.206.96/32,Magpie,no-resolve
-  - DOMAIN,magpie.610524.xyz,Magpie
-  - DOMAIN,1111.610524.xyz,Magpie
-  - DOMAIN-SUFFIX,micu.hk,Micu
-  
+  - RULE-SET,magpie,Magpie
+  - RULE-SET,micu,Micu
   - RULE-SET,private_ip,direct,no-resolve
   - RULE-SET,github_domain,Github
   - RULE-SET,twitter_domain,Twitter
@@ -237,7 +224,15 @@ rules:
 rule-anchor:
   ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
   domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
+  magpie: &magpie {type: http, interval: 86400, behavior: classical, format: yaml}
+  micu: &micu {type: http, interval: 86400, behavior: classical, format: yaml}
 rule-providers:
+  magpie:
+    <<: *magpie
+    url: "https://raw.githubusercontent.com/laningya/Raspberry-Pi/refs/heads/master/emby.yaml"
+  micu:
+    <<: *micu
+    url: "https://raw.githubusercontent.com/laningya/Raspberry-Pi/refs/heads/master/unemby.yaml"
   private_domain:
     <<: *domain
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"
