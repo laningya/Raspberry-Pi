@@ -4,7 +4,11 @@
     {
       "domain_suffix": [
         "micu.hk"
-      ]
+      ],
+      "domain": [
+        "c1.staryuki.me",
+        "c2.staryuki.me"
+        ]
     }
   ]
 }
