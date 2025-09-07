@@ -89,6 +89,10 @@ proxy-groups:
   - name: OpenAI
     type: select
     proxies:  [Singapore,TaiWan,Japan,America,Others,IEPL]
+
+  - name: Claude
+    type: select
+    proxies:  [America,Singapore,TaiWan,Japan,Others,IEPL]
     
   - name: Telegram
     type: select
@@ -194,6 +198,7 @@ proxy-groups:
 rules:
   - RULE-SET,magpie,Magpie
   - RULE-SET,micu,Micu
+  - RULE-SET,claude,Claude
   - RULE-SET,private_ip,direct,no-resolve
   - RULE-SET,github_domain,Github
   - RULE-SET,twitter_domain,Twitter
@@ -233,6 +238,9 @@ rule-providers:
   micu:
     <<: *micu
     url: "https://raw.githubusercontent.com/laningya/Raspberry-Pi/refs/heads/master/unemby.yaml"
+  claude:
+    <<: *claude
+    url: "https://raw.githubusercontent.com/laningya/Raspberry-Pi/refs/heads/master/claude.yaml"
   private_domain:
     <<: *domain
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"
