@@ -231,6 +231,7 @@ rule-anchor:
   domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
   magpie: &magpie {type: http, interval: 86400, behavior: classical, format: yaml}
   micu: &micu {type: http, interval: 86400, behavior: classical, format: yaml}
+  claude: &claude {type: http, interval: 86400, behavior: classical, format: yaml}
 rule-providers:
   magpie:
     <<: *magpie
