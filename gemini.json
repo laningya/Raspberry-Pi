@@ -5,21 +5,17 @@
       "domain_suffix": [
         "gemini.google.com",
         "bard.google.com",
-        "generativelanguage.googleapis.com",
         "apis.google.com",
         "proactivebackend-pa.googleapis.com",
         "deepmind.com",
         "deepmind.google",
         "generativeai.google",
-        "colab.research.google.com",
         "accounts.google.com",
         "clients6.google.com"
       ],
       "domain": [
         "ai.google.dev",
-        "generativeai.google",
-        "makersuite.google.com",
-        "alkalimakersuite-pa.clients6.google.com"
+        "makersuite.google.com"
       ],
       "domain_keyword": [
         "generativelanguage",
