@@ -18,7 +18,6 @@
       "domain": [
         "ai.google.dev",
         "generativeai.google",
-        "generativelanguage.googleapis.com",
         "makersuite.google.com",
         "alkalimakersuite-pa.clients6.google.com"
       ],
