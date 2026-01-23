@@ -95,11 +95,6 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?i)^(?!.*(?:网站|地址|剩余|过期|到期|时间|有效)).*"
-
-  - name: Gemini
-    type: select
-    include-all: true
-    filter: "(?i)^(?!.*(?:网站|地址|剩余|过期|到期|时间|有效)).*"
     
   - name: Telegram
     type: select
@@ -206,7 +201,6 @@ rules:
   - RULE-SET,magpie,Magpie
   - RULE-SET,micu,Micu
   - RULE-SET,claude,Claude
-  - RULE-SET,gemini,Gemini
   - RULE-SET,private_ip,direct,no-resolve
   - RULE-SET,github_domain,Github
   - RULE-SET,twitter_domain,Twitter
@@ -240,7 +234,6 @@ rule-anchor:
   magpie: &magpie {type: http, interval: 86400, behavior: classical, format: yaml}
   micu: &micu {type: http, interval: 86400, behavior: classical, format: yaml}
   claude: &claude {type: http, interval: 86400, behavior: classical, format: yaml}
-  gemini: &gemini {type: http, interval: 86400, behavior: classical, format: yaml}
 rule-providers:
   magpie:
     <<: *magpie
@@ -251,9 +244,6 @@ rule-providers:
   claude:
     <<: *claude
     url: "https://raw.githubusercontent.com/laningya/Raspberry-Pi/refs/heads/master/claude.yaml"
-  gemini:
-    <<: *gemini
-    url: "https://raw.githubusercontent.com/laningya/Raspberry-Pi/refs/heads/master/gemini.yaml"
   private_domain:
     <<: *domain
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"
